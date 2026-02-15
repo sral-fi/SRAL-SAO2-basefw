@@ -1,0 +1,34 @@
+# Ignore build output and intermediate files
+fw/build/
+/out/
+/Debug/
+/Release/
+*.o
+*.d
+*.elf
+*.axf
+*.bin
+*.hex
+*.map
+*.lst
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Misc
+tags
+ctags
+*.log
+
+# STM32Cube/other generated files
+*.ioc
+*.dep
+
+# Python cache (if any)
+__pycache__/
+*.pyc
