@@ -1,2 +1,42 @@
 # SRAL-SAO2-basefw
-SRAL-SAO2 repository for custom firmware development
+
+SRAL-SAO2 is a non-commercial electronic badge / Simple AddOn / development board for a badge to promote SRAL and Amateur Radio hobby. The devices were awarded as prizes to those who succesfully solved the SRAL CTF puzzle at the Disobey 2026 event (Helsinki, Finland). SRAL-SAO2 is not and will not be for sale.
+
+SRAL-SAO2 repository for custom firmware development. See the schematic (PDF) file in the root of this repo.
+Pinout can also be observed from fw/src/include/pins.h
+
+BADGE_PWR_SENSE is meant to allow detection whether the badge is run on its own power (battery) or fed
+from potentially larger battery as SAO. You may use this bit to optimize power consumption.
+
+## Flashing firmware
+
+This repository contains both the CTF and game binary and open-source base firmware (with no games) and Makefile targets to flash images to the SRAL-SAO2.
+
+- Flash the base image (if you'd like to develop your own firmware):
+
+```bash
+make unprotect # (if protected)
+make flash
+```
+
+(you may continue your own development with this)
+
+- To restore the CTF & amateur radio game image:
+
+```bash
+make unprotect # (if protected)
+make flash-d26
+make protect # (if readout protection is needed to protect CTF secrets) 
+```
+
+## License (MIT) and Disclaimer
+
+Copyright (c) 2026 Lasse Latva OH3HZB
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
