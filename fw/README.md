@@ -1,7 +1,5 @@
 # SRAL-SAO2 badge firmware
 
-This is the base firmware for the **SRAL-SAO2** (Simple/Sh*tty Add-On version 2), an interactive SAO hybrid badge for ham radio enthusiasts. The firmware runs on the STM32C011F6P6 microcontroller and includes interactive games, LED effects, and I2C EEPROM storage for persistent variables.
-
 ## Hardware Configuration
 
 ### Target MCU

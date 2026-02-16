@@ -8,6 +8,8 @@ This SRAL-SAO2 repository is made available to facilitate custom firmware develo
 
 ## Flashing the firmware
 
+(For more documentation, please refer to fw/README.md)
+
 This repository contains both the CTF and game binary and open-source base firmware (with no games) and Makefile targets to flash images to the SRAL-SAO2.
 
 - Flash the base image (if you'd like to develop your own firmware):
