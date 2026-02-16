@@ -32,6 +32,15 @@ make protect # (if readout protection is needed to protect CTF secrets)
 ```bash
 make help
 ```
+
+## Trying it out
+
+Open your favourite serial terminal (115200 8N1) and connect with e.g. USB-TTL-UART dongle using 3V3 levels to the UART pin header. There is a Makefile shortcut to Minicom:
+
+```bash
+make term
+```
+
 ## License (MIT) and Disclaimer
 
 Copyright (c) 2026 Lasse Latva OH3HZB
