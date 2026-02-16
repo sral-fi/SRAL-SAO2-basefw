@@ -1,14 +1,12 @@
 # SRAL-SAO2-basefw
 
+![revB-3D](sral-sao2-revB-3d.png "SRAL-SAO2 revB 3D images")
+
 SRAL-SAO2 is a non-commercial electronic badge / Simple AddOn / development board for a badge to promote SRAL and Amateur Radio hobby. The devices were awarded as prizes to those who succesfully solved the SRAL CTF puzzle at the Disobey 2026 event (Helsinki, Finland). SRAL-SAO2 is not and will not be for sale.
 
-SRAL-SAO2 repository for custom firmware development. See the schematic (PDF) file in the root of this repo.
-Pinout can also be observed from fw/src/include/pins.h
+This SRAL-SAO2 repository is made available to facilitate custom firmware development. See the schematic (PDF) file in the root of this repo. Pin definitions are already in file fw/src/include/pins.h
 
-BADGE_PWR_SENSE is meant to allow detection whether the badge is run on its own power (battery) or fed
-from potentially larger battery as SAO. You may use this bit to optimize power consumption.
-
-## Flashing firmware
+## Flashing the firmware
 
 This repository contains both the CTF and game binary and open-source base firmware (with no games) and Makefile targets to flash images to the SRAL-SAO2.
 
@@ -29,6 +27,11 @@ make flash-d26
 make protect # (if readout protection is needed to protect CTF secrets) 
 ```
 
+- To get help:
+
+```bash
+make help
+```
 ## License (MIT) and Disclaimer
 
 Copyright (c) 2026 Lasse Latva OH3HZB
