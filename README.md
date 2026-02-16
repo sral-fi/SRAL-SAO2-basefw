@@ -42,6 +42,10 @@ Open your favourite serial terminal (115200 8N1) and connect with e.g. USB-TTL-U
 ```bash
 make term
 ```
+## Firmware errata/changelog
+
+* v1.5.1-base: ERR: CW inter-character delay was one unit off, fixed. Backported to v1.4.7-D26. Tnx to OH3CUF for reporting this. //2026-02-16
+
 ## Hardware License
 
 SRAL-SAO2 hardware is proprietary, except the schematic. SRAL-SAO2 has never been and will not be available for sale.
