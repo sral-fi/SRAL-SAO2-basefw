@@ -385,8 +385,8 @@ int main(void) {
                 }
                 if (button_interrupt_flag || led_auto_mode != 3) break;
 
-                /* inter-character gap: 4 units total (we already did 1 after element) -> add 3 more units */
-                for (uint32_t g = 0; g < (3 * UNIT_MS) / 25; ++g) {
+                /* inter-character gap: 5 units total, 1+4 */
+                for (uint32_t g = 0; g < (4 * UNIT_MS) / 25; ++g) {
                     char c;
                     if (UART_ReceiveChar(&c)) CLI_ProcessChar(c);
                     if (button_interrupt_flag || led_auto_mode != 3) break;
