@@ -2,7 +2,7 @@
 
 ![revB-3D](sral-sao2-revB-3d.png "SRAL-SAO2 revB 3D images")
 
-SRAL-SAO2 is a non-commercial electronic badge / Simple AddOn / development board for a badge to promote SRAL and Amateur Radio hobby. The devices were awarded as prizes to those who succesfully solved the SRAL CTF puzzle at the Disobey 2026 event (Helsinki, Finland). SRAL-SAO2 is not and will not be for sale.
+SRAL-SAO2 is a non-commercial electronic badge / Simple AddOn (SAO V1.69bis) / development board for a badge to promote SRAL and Amateur Radio hobby. The devices were awarded as prizes to those who succesfully solved the SRAL "Antenna Controller" CTF challenge at the Disobey 2026 event (Helsinki, Finland). SRAL-SAO2 is not and will not be for sale.
 
 This SRAL-SAO2 repository is made available to facilitate custom firmware development. See the schematic (PDF) file in the root of this repo. Pin definitions are already in file fw/src/include/pins.h
 
