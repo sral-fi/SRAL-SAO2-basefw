@@ -143,10 +143,10 @@ flash: all
 
 # Flash prebuilt D26 image from repo (no build)
 flash-d26:
-	@echo "Flashing prebuilt D26 image: bin-builds/SRAL-SAO2-v146-D26.bin"
-	@st-flash write bin-builds/SRAL-SAO2-v146-D26.bin 0x8000000 || \
+	@echo "Flashing prebuilt D26 image: bin-builds/SRAL-SAO2-v147-D26.bin"
+	@st-flash write bin-builds/SRAL-SAO2-v147-D26.bin 0x8000000 || \
 		{ echo "Normal flash failed, trying with --connect-under-reset for protected device..."; \
-		  st-flash --connect-under-reset --freq=950k write bin-builds/SRAL-SAO2-v146-D26.bin 0x8000000; }
+		  st-flash --connect-under-reset --freq=950k write bin-builds/SRAL-SAO2-v147-D26.bin 0x8000000; }
 
 # Flash using OpenOCD (alternative)
 flash-openocd: all

@@ -20,7 +20,7 @@
 extern bool led_blinking[5];
 extern uint32_t led_blink_times[5];
 
-#define FIRMWARE_VERSION "1.5.0-base"
+#define FIRMWARE_VERSION "1.5.1-base"
 #define SYSTEM_HOSTNAME "SRAL-SAO2"
 
 /* EEPROM layout constants */
