@@ -12,7 +12,7 @@ Badge.Team "Binary SAO descriptor" spec (https://badge.team/docs/standards/sao/b
 - 4 bytes: magic (ASCII "LIFE")
 - 1 byte: SAO name length (N)
 - 1 byte: first driver name length (DNL)
-- 1 byte: first driver data length (DDL)  <-- NOTE: spec uses a single byte here
+- 1 byte: first driver data length (DDL)
 - 1 byte: number of extra drivers (EDC)
 - N bytes: SAO name
 - DNL bytes: first driver name
@@ -49,16 +49,7 @@ The firmware uses the `[[MARKER]]` area for entropy/keys and the remaining 192 b
 
 Readers and firmware should treat the callsign area as fixed-length, NUL-terminated ASCII (letters/numbers, '-' and '/'). The remainder of the firmware area may be packed as needed by the firmware and should be treated as opaque by external tools unless documented further.
 
-
 ## Implementation Notes
 
 - EEPROM writes require 5ms delay between operations
 - Internal MCU I2C pull-ups are left disabled; board uses external pull-ups
-- Configuration is loaded on boot and saved on changes
-
-## Implementation Notes
-
-- EEPROM writes require 5ms delay between operations
-- Internal MCU I2C pull-ups are left disabled; board uses external pull-ups
-- Configuration is loaded on boot and saved on changes
-
