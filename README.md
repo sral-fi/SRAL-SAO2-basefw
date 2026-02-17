@@ -45,6 +45,7 @@ make term
 ## Firmware errata/changelog
 
 * v1.5.1-base: ERR: CW inter-character delay was one unit off, fixed. Backported to v1.4.7-D26. Tnx to OH3CUF for reporting this. //2026-02-16
+* v1.5.2-base: Added a note that driver name should be changed for custom FW.
 
 ## Hardware License
 

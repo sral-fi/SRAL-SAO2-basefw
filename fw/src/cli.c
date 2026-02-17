@@ -20,7 +20,7 @@
 extern bool led_blinking[5];
 extern uint32_t led_blink_times[5];
 
-#define FIRMWARE_VERSION "1.5.1-base"
+#define FIRMWARE_VERSION "1.5.2-base"
 #define SYSTEM_HOSTNAME "SRAL-SAO2"
 
 /* EEPROM layout constants */
@@ -51,7 +51,7 @@ static const uint8_t default_sao[54] = {
     /* 0x08..0x10: name "SRAL-SAO2" (9 bytes) */
     'S','R','A','L','-','S','A','O','2',
     /* 0x11..0x15: driver name "sral2" (5 bytes) */
-    's','r','a','l','2',
+    's','a','o','X','Z', // CUSTOMIZE THIS TO DIFFERENTIATE!
     /* 0x16..0x35: driver data (32 bytes) - default pattern 0x00..0x1F */
     0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,
     0x08,0x09,0x0A,0x0B,0x0C,0x0D,0x0E,0x0F,
@@ -136,10 +136,6 @@ static void CLI_StartLedBlink(int led_num);
 static void CLI_LoadConfig(void);
 static void CLI_SaveConfig(void);
 static bool CLI_ValidateCallsign(const char *callsign);
-
-/* Flash storage functions */
-
-/* Hint system */
 
 /* Helper function to convert uint32_t to string */
 static void uint32_to_str(uint32_t num, char *str, uint8_t max_len) {
@@ -359,7 +355,7 @@ static void CLI_SaveConfig(void) {
     for (size_t i = 0; i < CALLSIGN_SLOT_LEN; i++) {
         uint8_t b = (i < strlen(current_callsign)) ? (uint8_t)current_callsign[i] : 0;
         if (eeprom_write_byte(CALLSIGN_OFFSET + (uint16_t)i, b) != 0) {
-            UART_SendString("Err: Failed to save callsign.\r\n");
+            UART_SendString("Err: Failed to save callsign\r\n");
             return;
         }
         delay_us(5000);
@@ -370,7 +366,7 @@ static void CLI_SaveConfig(void) {
     for (size_t i = 0; i < CW_SLOT_LEN; i++) {
         uint8_t b = (i < strlen(current_cw)) ? (uint8_t)current_cw[i] : 0;
         if (eeprom_write_byte(CW_SLOT_OFFSET + (uint16_t)i, b) != 0) {
-            UART_SendString("Err: Failed to save CW msg.\r\n");
+            UART_SendString("Err: Failed to save CW msg\r\n");
             return;
         }
         delay_us(5000);
@@ -582,7 +578,6 @@ static void CLI_ParseCommand(const char *cmd) {
         UART_SendString("System Status:\r\n");
         UART_SendString("  Board: SRAL-SAO2 (6 KB RAM / 32 KB flash, 256 B EEPROM)\r\n");
         UART_SendString("  Clock: 12 MHz\r\n");
-        UART_SendString("  OS: System AX.25/OS; SAO edition\r\n");
         UART_SendString("  FW: v");
         UART_SendString(FIRMWARE_VERSION);
         UART_SendString("\r\n  ttyS0: 115200 8N1\r\n");
@@ -597,7 +592,6 @@ static void CLI_ParseCommand(const char *cmd) {
         CLI_DisplayUptime();
     }
     else if (strcmp(cmd, "exit") == 0 || strcmp(cmd, "logout") == 0) {
-        // Hidden command: exit/logout - Inception reference
         UART_SendString("Haven't seen Inception? Be careful out there\r\n");
     }
     else if (strcmp(cmd, "ls") == 0 || strncmp(cmd, "ls ", 3) == 0) {
@@ -607,7 +601,6 @@ static void CLI_ParseCommand(const char *cmd) {
         if (arg) {
             while (*arg == ' ') arg++; /* skip extra spaces */
         }
-        /* Only one virtual file exists: README */
         if (arg && *arg && strcasecmp(arg, "README") != 0) {
             UART_SendString("No such file\r\n");
         } else {
@@ -658,7 +651,6 @@ static void CLI_ParseCommand(const char *cmd) {
         else UART_SendString("(none)");
         UART_SendString("\r\n");
     }
-    /* 'eetest' command removed: EEPROM quick-test not needed */
     else if (strncmp(cmd, "eeread ", 7) == 0) {
         uint8_t data;
         uint16_t addr = atoi(cmd + 7);
